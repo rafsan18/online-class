@@ -1,10 +1,13 @@
-import React, { useState } from "react";
-
+import React from "react";
 import "./App.css";
-import { Container, Jumbotron, Button, Toast } from "react-bootstrap";
+import Header from "./components/Header/Header";
 
 function App() {
-  return <h1>This is a react app</h1>;
+  return (
+    <div>
+      <Header></Header>
+    </div>
+  );
 }
 
 export default App;
