@@ -1,7 +1,6 @@
 import React from "react";
 import fakeData from "../../fakeData/courses.js";
 import { useState } from "react";
-import "./Shop.css";
 import Course from "../Course/Course.js";
 import Cart from "../Cart/Cart.js";
 
