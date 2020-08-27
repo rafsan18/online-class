@@ -6,8 +6,8 @@ import Course from "../Course/Course.js";
 import Cart from "../Cart/Cart.js";
 
 const Courses = () => {
-  const data = fakeData.slice(0, 15);
-  const [courses, setCourses] = useState(data);
+  const [courses, setCourses] = useState(fakeData);
+
   const [cart, setCart] = useState([]);
 
   const handleAddCourse = (course) => {
