@@ -11,7 +11,6 @@ const Courses = () => {
   const [cart, setCart] = useState([]);
 
   const handleAddCourse = (course) => {
-    console.log("product added", course);
     const newCart = [...cart, course];
     setCart(newCart);
   };
@@ -20,7 +19,11 @@ const Courses = () => {
     <div className="container-fluid d-flex">
       <div className=" border-right row  col-md-9 col-sm-9">
         {courses.map((course) => (
-          <Course handleAddCourse={handleAddCourse} course={course}></Course>
+          <Course
+            handleAddCourse={handleAddCourse}
+            course={course}
+            key={course.id}
+          ></Course>
         ))}
       </div>
       <div className="cart-container col-md-3 col-sm-3 ">

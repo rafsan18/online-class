@@ -2,6 +2,7 @@ import React from "react";
 
 const Cart = (props) => {
   const cart = props.cart;
+
   const totalPrice = cart.reduce((total, course) => total + course.price, 0);
 
   return (
@@ -12,7 +13,9 @@ const Cart = (props) => {
       </div>
       <hr />
       <div className="price-calculation">
-        <p>Total Price: {totalPrice.toFixed(2)} </p>
+        <p className="pl-3">
+          Total Price: <strong>${totalPrice.toFixed(2)}</strong>{" "}
+        </p>
       </div>
     </div>
   );
