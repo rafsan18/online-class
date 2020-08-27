@@ -26,7 +26,7 @@ var courses = [
   {
     name: "PHP for Beginners",
     price: 59.99,
-    img: "https://i.ibb.co/cXzBxCQ/php.pn",
+    img: "https://i.ibb.co/cXzBxCQ/php.png",
     id: 205,
   },
   {
