@@ -1,33 +1,36 @@
 import React from "react";
-import "./Course.css";
 
-const Course = (props) => {
-  const { title, name, price, img, info } = props.course;
-  return (
-    <div className="col-md-4">
-      <div className="single-course border">
-        <img className="img-fluid border-bottom mb-3" src={img} alt="" />
-        <div className="course-info p-3">
-          <h5> {title} </h5>
+const Course = ({ course, handleAddCourse }) => {
+    const { img, title, name, info, price } = course;
 
-          <p>{info}</p>
-          <br />
-          <p>
-            <small>
-              By <strong> {name} </strong>
-            </small>
-          </p>
-          <h6 className="p-2"> ${price}</h6>
-          <button
-            className="btn btn-danger enroll-btn"
-            onClick={() => props.handleAddCourse(props.course)}
-          >
-            Enroll Now
-          </button>
+    return (
+        <div className="col-md-4 mb-3">
+            <div className="card " style={{ height: "100%" }}>
+                <img
+                    src={img}
+                    style={{ height: "200px" }}
+                    className="card-img-top"
+                    alt="..."
+                />
+                <div className="card-body d-flex flex-column justify-content-between">
+                    <div>
+                        <h5 className="card-title">{title}</h5>
+                        <p className="card-text">{info}</p>
+                        <small>
+                            By: <strong>{name}</strong>
+                        </small>
+                        <h6>${price}</h6>
+                    </div>
+                    <button
+                        onClick={() => handleAddCourse(course)}
+                        className="btn btn-danger"
+                    >
+                        Enroll Now
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default Course;

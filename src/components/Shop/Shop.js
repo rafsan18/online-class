@@ -1,35 +1,41 @@
-import React from "react";
-import fakeData from "../../fakeData/courses.js";
-import { useState } from "react";
-import Course from "../Course/Course.js";
-import Cart from "../Cart/Cart.js";
+import React, { useState } from "react";
+import Cart from "../Cart/Cart";
+import fakeData from "../../fakeData/courses";
+import Course from "../Course/Course";
 
-const Courses = () => {
-  const [courses, setCourses] = useState(fakeData);
+const Shop = () => {
+    const [courses, setCourses] = useState(fakeData);
+    const [cart, setCart] = useState([]);
 
-  const [cart, setCart] = useState([]);
-
-  const handleAddCourse = (course) => {
-    const newCart = [...cart, course];
-    setCart(newCart);
-  };
-
-  return (
-    <div className="container-fluid d-flex">
-      <div className=" border-right row  col-md-9 col-sm-9">
-        {courses.map((course) => (
-          <Course
-            handleAddCourse={handleAddCourse}
-            course={course}
-            key={course.id}
-          ></Course>
-        ))}
-      </div>
-      <div className="cart-container col-md-3 col-sm-3 ">
-        <Cart cart={cart}></Cart>
-      </div>
-    </div>
-  );
+    const handleAddCourse = (course) => {
+        let newCart = [...cart];
+        if (newCart.includes(course)) {
+            alert("Course already added in the cart");
+        } else {
+            newCart.push(course);
+        }
+        setCart(newCart);
+    };
+    return (
+        <div className="row container-fluid">
+            <div className="col-md-9 col-sm-8 col-8">
+                <div className="row">
+                    {courses.map((course) => (
+                        <Course
+                            key={course.id}
+                            course={course}
+                            handleAddCourse={handleAddCourse}
+                        />
+                    ))}
+                </div>
+            </div>
+            <div className="col-md-3 col-sm-4 col-4">
+                <div className="border-left" style={{ height: "100vh" }}>
+                    <Cart cart={cart}></Cart>
+                </div>
+            </div>
+        </div>
+    );
 };
 
-export default Courses;
+export default Shop;
