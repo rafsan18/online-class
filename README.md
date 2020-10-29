@@ -12,3 +12,5 @@ Technologies Used:
 
 -   React.js
 -   React-Bootstrap
+
+Deployed in Netlify.
